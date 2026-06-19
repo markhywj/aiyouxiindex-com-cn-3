@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://markhywj.github.io/aiyouxiindex-com-cn-3/sitemap.xml
