@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>milan.com · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2.5rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            padding: 3.2rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #13293e;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4a5b6e;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.7;
+        }
+
+        .hero .link-sentence {
+            background: #f6f8fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #2f4055;
+        }
+
+        .hero .link-sentence a {
+            color: #0f6b3e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #9bc4ad;
+            transition: border 0.2s;
+        }
+
+        .hero .link-sentence a:hover {
+            border-bottom-color: #0f6b3e;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #eaedf0;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03), 0 0 0 1px #cdd5dd;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #1a3146;
+            border-left: 3px solid #2b7a4e;
+            padding-left: 0.7rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2e4158;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            color: #2b7a4e;
+            font-weight: 700;
+            display: inline-block;
+            width: 1.1rem;
+        }
+
+        .card .highlight-tag {
+            display: inline-block;
+            background: #e5f0e9;
+            color: #145832;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.1rem 0.7rem;
+            border-radius: 40px;
+            margin-top: 0.5rem;
+        }
+
+        /* 说明区（合并较长文本） */
+        .explanatory {
+            background: #ffffff;
+            padding: 2rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #eaedf0;
+            margin-bottom: 2.2rem;
+        }
+
+        .explanatory h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #13293e;
+        }
+
+        .explanatory p {
+            margin-bottom: 0.8rem;
+            color: #2e4158;
+        }
+
+        .explanatory .snippet {
+            background: #f5f7f9;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #1a3146;
+            margin-top: 0.6rem;
+            border-left: 3px solid #6d8f7a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #eaedf0;
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+            color: #13293e;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eef2f5;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f3b52;
+            margin-bottom: 0.15rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item span {
+            font-size: 0.88rem;
+            color: #3d5670;
+        }
+
+        .faq-summary .footnote {
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: #4f6680;
+            text-align: right;
+        }
+
+        /* 底部链接 */
+        .bottom-links {
+            text-align: center;
+            padding: 1.2rem 0 0.2rem 0;
+            font-size: 0.9rem;
+            color: #3f5b74;
+            border-top: 1px solid #d9e0e6;
+        }
+
+        .bottom-links a {
+            color: #1d6b3e;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #b8cfc0;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #1d6b3e;
+        }
+
+        .bottom-links .sep {
+            margin: 0 0.6rem;
+            color: #a8b7c7;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .explanatory, .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero .link-sentence {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- hero -->
+    <div class="hero">
+        <h1>milan.com · 稳定入口</h1>
+        <div class="sub">
+            一个面向信息获取与页面导航的基础结构，侧重页面说明与一致的可访问性。
+        </div>
+        <div class="link-sentence">
+            您可以通过 <a href="https://zh-m-milan.com">milan.com</a> 直接访问当前站点的根页面。
+        </div>
+    </div>
+
+    <!-- 优势区 — 卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>页面结构说明</h2>
+            <p>每个页面均维持统一的导航层级与语义标记，降低理解成本。从标题层级到链接标注，均以内容可读性为优先。</p>
+            <div class="highlight-tag">结构优先</div>
+        </div>
+        <div class="card">
+            <h2>低噪环境</h2>
+            <p>无弹窗式引导、无冗余追踪脚本，仅呈现页面核心信息与必要操作路径。适合需要快速定位内容的用户。</p>
+            <div class="highlight-tag">专注信息</div>
+        </div>
+        <div class="card">
+            <h2>场景适配</h2>
+            <ul>
+                <li>日常查阅与归类</li>
+                <li>跨设备访问的一致布局</li>
+                <li>直接通过根路径触达</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>访问方式</h2>
+            <p>站点域名为固定入口，不依赖第三方中间页。您可直接在地址栏输入或通过书签访问，路径简洁。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="explanatory">
+        <h2>从稳定入口到页面说明</h2>
+        <p>站点基于静态页面组织，每个资源都有明确的相对路径。页面标题、元描述与正文保持语义一致，减少歧义。下方为一个典型页面结构的摘要示意：</p>
+        <div class="snippet">
+            <strong>页面组成示意</strong><br>
+            hero 区（名称+链接指向）→ 分区卡片（结构/环境/场景/方式）→ 说明区 → FAQ 摘要 → 底部索引
+        </div>
+        <p style="margin-top: 1rem;">所有内容均以中文呈现，链接文本清晰指向目标资源，不附加额外跳转参数。这种设计适用于信息型站点与工具型页面的基础框架。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <strong>这个站点的核心定位是什么？</strong>
+            <span>提供一组稳定的页面入口与内容说明，强调结构的可预见性。不涉及用户数据收集或商业推广。</span>
+        </div>
+        <div class="faq-item">
+            <strong>milan.com 与页面中的链接有什么关系？</strong>
+            <span>站内所有主链接均指向同一根域，例如 <a href="https://zh-m-milan.com" style="color:#0f6b3e; text-decoration:none; border-bottom:1px solid #9bc4ad;">milan.com</a> 为当前页面的基础引用地址。</span>
+        </div>
+        <div class="faq-item">
+            <strong>我可以直接引用这个页面吗？</strong>
+            <span>可以。页面本身为静态介绍页，不包含动态资源，适合直接部署或作为入口索引。</span>
+        </div>
+        <div class="faq-item">
+            <strong>是否有额外的子页面？</strong>
+            <span>当前展示为首页介绍。更多内容规划可参考页面内卡片分类，后续扩展将保持相同的视觉与结构规范。</span>
+        </div>
+        <div class="footnote">· 摘要覆盖常见方向，具体细节以实际页面为准。</div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="bottom-links">
+        <a href="https://zh-m-milan.com">milan.com</a>
+        <span class="sep">·</span>
+        <span>页面说明 · 2025</span>
+        <span class="sep">·</span>
+        <span>浅灰背景 · 卡片分区</span>
+    </div>
+</div>
+</body>
+</html>
