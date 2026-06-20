@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28圈 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f1eb;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      line-height: 1.7;
+      color: #2e2b28;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #12100e 0%, #2a2521 100%);
+      padding: 6rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 120%;
+      height: 140%;
+      background: radial-gradient(ellipse at 30% 60%, rgba(120, 100, 80, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: #e6ddd0;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      border-bottom: 2px solid #b8a48c;
+      padding-bottom: 0.2rem;
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: #cbc0b0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .content-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.8rem 4rem;
+    }
+
+    .section-block {
+      margin-bottom: 3rem;
+    }
+
+    .section-block:last-of-type {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-block h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #3a322c;
+      border-left: 4px solid #b0937a;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+    }
+
+    .section-block p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .callout {
+      background: #eae3d9;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      margin: 2rem 0 2.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .callout p {
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #8b6f58;
+      text-decoration: none;
+      border-bottom: 1px dotted #b9a48b;
+      transition: color 0.15s, border-color 0.15s;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #5f4a38;
+      border-bottom: 1px solid #7d634e;
+    }
+
+    .faq-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.2rem 0 1.5rem;
+    }
+
+    .faq-item {
+      background: #f9f6f0;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      border-left: 3px solid #cfbeac;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #3d352e;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #4e453c;
+      margin-bottom: 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 2.5rem 1rem 3.5rem;
+      background: #eae3d9;
+      border-top: 1px solid #d6cdbf;
+    }
+
+    .footer-note span {
+      display: inline-block;
+      font-size: 1.05rem;
+      color: #3f3831;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-note a {
+      border-bottom: 1px solid #b19a84;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero {
+        padding: 4rem 1.2rem 3rem;
+      }
+
+      .content-wrapper {
+        padding: 2rem 1.2rem 2.5rem;
+      }
+
+      .faq-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .section-block h2 {
+        font-size: 1.3rem;
+      }
+
+      .callout {
+        padding: 1.3rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.06em;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>〈 <em>28圈</em> 〉</h1>
+    <p>一个围绕数字、逻辑与社区文化的主题场域 —— 从路径到交汇，从模式到洞察。</p>
+  </div>
+
+  <div class="content-wrapper">
+
+    <div class="section-block">
+      <h2>不只是数字：圈层与循环</h2>
+      <p>“28圈”这个关键词，拆解开来，有数字，有闭环，也有一种周而复始的隐喻。在信息碎片化的时代，人们往往渴望一个既能提供清晰结构、又能容纳多元视角的容器。数字“28”在数学中属于完全数领域之外的稳定数字，同时它也在许多文化中被视为周期与节律的象征。而“圈”则暗示了一种聚合、一种回环，以及一种可被反复审视的边界。</p>
+      <p>从主题内容的角度看，<a href="https://28-loop.com">28圈</a>所代表的并非单纯指向某个单一应用，而更接近于一种观察框架：当我们把离散的信息放入一个闭环之中，它们会呈现出怎样的规律？在逻辑推演与场景体验之间，是否存在一种可被感知的节奏？这些追问，也正是这个专题希望与读者共同探讨的起点。</p>
+    </div>
+
+    <div class="section-block">
+      <h2>结构、路径与自然衔接</h2>
+      <p>如果把“28圈”理解为一个抽象的背景设定，那么它真正有趣的地方在于：它同时容纳了“规则”与“自由”。数字暗示着某种秩序或编码，而圈层则允许个体在其中寻找自己的轨迹。在知识型话题的讨论中，这种张力尤为珍贵——我们既需要清晰的框架来避免混乱，也需要足够的弹性来容纳意外。</p>
+      <p>比如在分析复杂系统时，28圈的思路可以转化为一种“限定条件下的循环推演”。先设定一个闭合的边界（圈），再通过数字化的节点（28或其他参数）来观察内部的变化。这种方法被广泛应用于策略设计、社区运营乃至文化研究之中。它不承诺最优解，但提供了一种可复用的思考模型。</p>
+      <div class="callout">
+        <p><strong>场景示例</strong> —— 某次线上专题讨论中，参与者以“28圈”作为虚拟边界，在限定时间内围绕一个概念进行多轮发散与收敛。最终形成的结论既保留了深度，又避免了漫无边际的偏移。这种模式后来被多次借鉴，并逐渐演变为一种轻量化的协作仪式。</p>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2>从概念到日常：微小而持续的对话</h2>
+      <p>任何一个关键词之所以能持续引发关注，往往不在于它本身多么宏大，而在于它能不断嵌入具体的语境之中。28圈也是如此。有人在日志里用它记录每日的闭环习惯，有人将它作为团队内部的一个暗号，代表“回到原点再出发”。这些自发的演绎，让一个原本中性的词组逐渐拥有了温度。</p>
+      <p>在信息过载的今天，能够沉淀下来的往往不是最炫目的东西，而是那些经得起反复回看的结构与关系。28圈提供的正是这样一种低门槛的思维道具——它不要求你成为专家，只邀请你进入一个可以随时进出的循环，观察、思考，然后带着新的视角离开。</p>
+    </div>
+
+    <div class="faq-summary">
+      <div class="faq-item">
+        <strong>Q: 28圈是一个固定平台吗？</strong>
+        <p>它更像是一个概念枢纽，连接着多种内容形态与讨论语境。你可以把它理解为一个持续演变的话题场。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q: 普通人如何参与其中？</strong>
+        <p>不需要特殊资格。从浏览、阅读到加入社区讨论，每个环节都是开放的。关键在于保持对“循环”的好奇。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q: 这个关键词的未来走向？</strong>
+        <p>随着更多人的诠释与实践，28圈的边界会不断拓展。唯一不变的是它始终鼓励结构化的思考与坦诚的交流。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q: 是否有相关的深度资料？</strong>
+        <p>你可以从<a href="https://28-loop.com">28圈</a>的主站开始浏览，那里汇集了专题文章、讨论记录与动态更新。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <span>了解更多关于数字、逻辑与圈层的内容，可至 <a href="https://28-loop.com">28圈</a> 页面继续探索。</span>
+  </div>
+
+</body>
+</html>
