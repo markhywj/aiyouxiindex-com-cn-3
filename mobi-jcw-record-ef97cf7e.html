@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>竞彩网 · 赛事视野与信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde5cf 0%, #f8d5b3 35%, #f3c49a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .card-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 48px 48px 36px 36px;
+            box-shadow: 0 25px 50px -10px rgba(140, 80, 30, 0.25),
+                        0 0 0 1px rgba(255, 235, 210, 0.3) inset;
+            padding: 2.5rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.6rem;
+            font-weight: 580;
+            letter-spacing: -0.02em;
+            color: #6d3f1f;
+            background: linear-gradient(to right, #7f4b28, #b0683a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: #5f3e28;
+            background: rgba(250, 225, 195, 0.6);
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            border: 1px solid rgba(190, 130, 70, 0.15);
+        }
+
+        .intro-text {
+            margin: 2rem 0 2.4rem 0;
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: #3b2a1c;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .intro-text a {
+            color: #9f6239;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.1rem 0.2rem;
+            border-radius: 12px;
+            background: transparent;
+            transition: background 0.15s, box-shadow 0.15s;
+            box-shadow: 0 0 0 1px transparent;
+        }
+
+        .intro-text a:hover {
+            background: #fae4cd;
+            box-shadow: 0 0 0 1px #dba87a;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2.6rem 0;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 30px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 6px 18px rgba(120, 70, 30, 0.07), 0 0 0 1px rgba(230, 185, 145, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(110, 60, 20, 0.12), 0 0 0 1px #dba87a;
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            background: #f7e5d3;
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #86532d;
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            color: #572f18;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
+        }
+
+        .info-card p {
+            font-size: 0.96rem;
+            line-height: 1.6;
+            color: #4d3828;
+            flex: 1;
+        }
+
+        .card-tag {
+            margin-top: 1.2rem;
+            font-size: 0.78rem;
+            color: #97633b;
+            background: #f3e0ce;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            align-self: flex-start;
+            letter-spacing: 0.3px;
+        }
+
+        .scene-note {
+            background: rgba(235, 205, 175, 0.25);
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0 2rem;
+            border: 1px solid rgba(195, 145, 95, 0.2);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem 1rem;
+        }
+
+        .scene-note span {
+            font-weight: 460;
+            color: #4b2e18;
+        }
+
+        .scene-note .highlight-badge {
+            background: #e5c4a4;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3f2614;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 2rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 245, 235, 0.5);
+            padding: 1rem 1.4rem;
+            border-radius: 24px;
+            border-left: 4px solid #dba87a;
+        }
+
+        .faq-item .q {
+            font-weight: 530;
+            color: #5c341d;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #4f3723;
+            line-height: 1.5;
+        }
+
+        .natural-link-sentence {
+            background: white;
+            border-radius: 40px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(140, 80, 30, 0.06);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #3e2a19;
+        }
+
+        .natural-link-sentence a {
+            color: #9f6239;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            background: #f7e2cf;
+            transition: background 0.15s, box-shadow 0.15s;
+            white-space: nowrap;
+        }
+
+        .natural-link-sentence a:hover {
+            background: #eccbb2;
+            box-shadow: 0 2px 6px rgba(170, 100, 40, 0.1);
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7b5f47;
+            opacity: 0.7;
+            border-top: 1px dashed #dbb692;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .card-wrapper {
+                padding: 1.8rem 1.2rem;
+                border-radius: 32px;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                gap: 1.2rem;
+            }
+
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .scene-note {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.4rem;
+            }
+
+            .natural-link-sentence {
+                padding: 1.2rem 1rem;
+                font-size: 0.98rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .info-card {
+                padding: 1.4rem 1.2rem;
+            }
+            .hero-section h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-wrapper">
+        <div class="hero-section">
+            <h1>赛事·视野</h1>
+            <div class="hero-sub">⚡ 信息 · 节奏 · 判断</div>
+        </div>
+
+        <div class="intro-text">
+            体育竞赛的魅力往往藏在细节里——从联赛走势到关键球员动态，每一层信息都可能影响观察方向。作为内容聚合与视角延展的窗口，<a href="https://mobi-jcw.com">竞彩网</a> 持续整理赛事背景、数据脉络与赛前动态，为爱好者提供结构化的阅读素材。
+        </div>
+
+        <!-- 卡片区域：用途维度 -->
+        <div class="card-grid">
+            <div class="info-card">
+                <div class="card-icon">📋</div>
+                <h3>赛前简报</h3>
+                <p>聚焦近期交锋记录、阵容变化及战术倾向，以简要卡片呈现，帮助快速建立赛前认知框架。</p>
+                <span class="card-tag">数据参考</span>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">📊</div>
+                <h3>趋势笔记</h3>
+                <p>通过整合联赛积分区变化、主客场表现差异，形成自然走势笔记，避免孤立看待数字。</p>
+                <span class="card-tag">纵向比较</span>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🧩</div>
+                <h3>场景速览</h3>
+                <p>从杯赛淘汰制节奏到联赛密集赛程，针对不同赛事阶段提炼典型情境与对应信息重点。</p>
+                <span class="card-tag">节奏提示</span>
+            </div>
+        </div>
+
+        <!-- 适合人群 / 场景卡片 -->
+        <div class="scene-note">
+            <span>📌 适合这样的你：</span>
+            <span class="highlight-badge">赛前查阅习惯</span>
+            <span class="highlight-badge">关注联赛基本面</span>
+            <span class="highlight-badge">喜欢结构化信息</span>
+            <span class="highlight-badge">倾向独立思考</span>
+        </div>
+
+        <!-- FAQ 摘要 (精简) -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="q">📖 内容更新频率如何？</div>
+                <div class="a">主要围绕主流联赛及杯赛赛程，赛前 1~2 天更新相关简报与趋势笔记，保持信息节奏自然。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">🎯 是否包含预测类内容？</div>
+                <div class="a">不提供预测结论或建议。内容侧重可验证的公开数据与背景梳理，辅助个人视角形成。</div>
+            </div>
+        </div>
+
+        <!-- 自然嵌入链接的段落（非生硬按钮） -->
+        <div class="natural-link-sentence">
+            ⚽ 如果你习惯从联赛积分、近期状态与阵容深度切入一场赛事，不妨将 <a href="https://mobi-jcw.com">竞彩网</a> 加入你的信息组合，日常浏览、赛前翻阅都顺理成章。
+        </div>
+
+        <!-- 再一个自然段落（不是按钮，句子形态，但 a 标签依然可见文本为「竞彩网」） -->
+        <p style="color: #452f1d; font-size: 0.95rem; line-height: 1.7; text-align: center; max-width: 650px; margin: 0.6rem auto 0.2rem;">
+            无论是熟悉五大联赛的资深爱好者，还是刚开始关注杯赛节奏的新朋友，都可以在 <a href="https://mobi-jcw.com" style="color:#9f6239; text-decoration: none; font-weight: 500; background: #f2d9c2; padding: 0.1rem 0.6rem; border-radius: 30px;">竞彩网</a> 找到对应自己节奏的信息切片，不匆忙，不堆砌。
+        </p>
+
+        <div class="footer-note">
+            内容基于公开赛事信息整理 · 保持独立思考，享受比赛本身
+        </div>
+    </div>
+</body>
+</html>
